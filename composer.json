@@ -1,0 +1,20 @@
+{
+  "name": "cdyun/php-http",
+  "description": "PHP emulates HTTP requests",
+  "license": "mit",
+  "autoload": {
+    "psr-4": {
+      "Cdyun\\PhpHttp\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "cdyun",
+      "email": "121625706@qq.com"
+    }
+  ],
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*"
+  }
+}
