@@ -51,7 +51,7 @@ class HttpService
      * @param array $data
      * @param bool $header
      * @param int $timeout
-     * @return bool|string
+     * @return array
      */
     public static function getRequest($url, $data = array(), $header = false, $timeout = 10)
     {
@@ -70,7 +70,7 @@ class HttpService
      * @param array $data
      * @param bool $header
      * @param int $timeout
-     * @return bool|string
+     * @return array
      */
     public static function request($url, $method = 'get', $data = array(), $header = false, $timeout = 15)
     {
@@ -108,7 +108,7 @@ class HttpService
         self::$status = $status;
         self::$headerStr = trim(substr($content, 0, $status['header_size']));
         $content = trim(substr($content, $status['header_size']));
-        return (intval($status["http_code"]) === 200) ? $content : false;
+        return ['response_code' => $status["http_code"], 'response_data' => $content];
     }
 
     /**
@@ -117,7 +117,7 @@ class HttpService
      * @param array $data
      * @param bool $header
      * @param int $timeout
-     * @return bool|string
+     * @return array
      */
     public static function postRequest($url, array $data = array(), $header = false, $timeout = 10)
     {
